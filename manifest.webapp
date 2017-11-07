@@ -106,19 +106,54 @@
     }
   ],
   "locales": {
-    "de": {},
+    "de": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
     "en": {
       "name": "Collect",
       "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
       "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
       "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
     },
-    "es": {},
-    "fr": {},
-    "ja": {},
-    "nl": {},
-    "sq": {},
-    "zh_CN": {}
+    "es": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "fr": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "ja": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "nl": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "sq": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "zh_CN": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    }
   },
   "langs": [
     "de",
