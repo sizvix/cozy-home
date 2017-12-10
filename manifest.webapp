@@ -126,8 +126,8 @@
     "es": {
       "name": "Recopilar",
       "short_description": "Aplicación de configuración para konnectors. Toma los datos de sus servicios y los lleva a su Cozy.",
-      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
-      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+      "long_description": "__Collect__ le permitirá capturar toda la información que usted logra utilizando muchos servicios en sitios web o en aplicaciones.\nDisfrute de esta nueva forma de controlar sus datos diarios: tada:",
+      "changes": "### Nuevas características :rocket:?\n\nConectores para sus cuentas bancarias!!: bank:"
     },
     "fr": {
       "name": "Collect",
