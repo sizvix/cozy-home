@@ -63,7 +63,12 @@
     },
     "files": {
       "description": "Required to access folders",
-      "type": "io.cozy.files"
+      "type": "io.cozy.files",
+      "verbs": [
+        "GET",
+        "PATCH",
+        "POST"
+      ]
     },
     "jobs": {
       "description": "Required to run the konnectors",
@@ -124,10 +129,10 @@
       "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
     },
     "es": {
-      "name": "Collect",
-      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
-      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
-      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+      "name": "Recopilar",
+      "short_description": "Aplicación de configuración para konnectors. Toma los datos de sus servicios y los lleva a su Cozy.",
+      "long_description": "__Collect__ le permitirá capturar toda la información que usted logra utilizando muchos servicios en sitios web o en aplicaciones.\nDisfrute de esta nueva forma de controlar sus datos diarios: tada:",
+      "changes": "### Nuevas características :rocket:?\n\nConectores para sus cuentas bancarias!!: bank:"
     },
     "fr": {
       "name": "Collect",
@@ -137,9 +142,9 @@
     },
     "ja": {
       "name": "Collect",
-      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
-      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
-      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+      "short_description": "コネクターの設定アプリケーション。 お使いの Cozy にサービスデータを持ってきましょう。",
+      "long_description": "__Collect__ を使うと、プロバイダーのウェブサイトやアプリケーション上の数多くのサービスで使っているすべての情報を取得できます。\n日々のデータを管理するこの新しい方法をお楽しみください :tada:",
+      "changes": "### 新機能 :rocket:\n\n銀行口座のコネクター!!:bank:"
     },
     "nl": {
       "name": "Collect",
