@@ -114,5 +114,12 @@
       ],
       "href": "/services"
     }
-  ]
+  ],
+  "services": {
+    "trigger-bouncing": {
+      "type": "node",
+      "file": "/services/triggerBouncing.js",
+      "trigger": "@cron 0 0 * * * *"
+    }
+  }
 }
