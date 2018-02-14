@@ -608,6 +608,8 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
 }
 .col-account-connection-security--3L77j svg {
   max-height: 3em;
@@ -617,13 +619,14 @@ p {
 }
 .col-account-connection-form--3SFaC {
   margin: 0 1em;
-  min-width: 50%;
+  min-width: 60%;
 }
 .col-account-connection-editor--vXwl3 {
   text-align: center;
   color: #95999d;
   margin-top: 0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
+  font-size: 0.9em;
 }
 .col-account-connection-connected-title--2hEyv {
   margin-bottom: -0.5em;
@@ -873,7 +876,11 @@ p {
   margin: 0 1em;
   min-width: 25%;
 }
+.col-account-connection-data--2zxqR h4 {
+  margin-bottom: 1em;
+}
 .col-account-connection-data-access--3KAYt {
+  margin-top: 0;
   padding-left: 0;
 }
 @-webkit-keyframes spin--2166W {
@@ -1132,6 +1139,7 @@ p {
   max-width: 2em;
   max-height: 2em;
   margin: 0.5em;
+  margin-left: 0.25em;
 }
 .icon--2kaoz {
   fill: currentColor;
@@ -1422,6 +1430,7 @@ p {
   background-color: #fff;
   text-transform: uppercase;
   font-weight: 700;
+  padding: 0.15625em;
 }
 .account-form-fieldset--39jV- {
   padding: 0;
@@ -1711,12 +1720,15 @@ p {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+.coz-field--3Wf09:last-child {
+  margin-bottom: 0;
+}
 .coz-field--3Wf09 label,
 .coz-field--3Wf09 .password-visibility--19-CZ {
   display: block;
   text-transform: uppercase;
   color: #95999d;
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding: 0.55em 0;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
@@ -2126,12 +2138,14 @@ p {
   background-color: #fff;
   text-transform: uppercase;
   font-weight: 700;
+  padding: 0.15625em;
 }
 .account-form-fieldset--1E6ua {
   padding: 0;
   border: 0;
 }
 .col-account-folder--1h8TQ {
+  margin-top: 2em;
   position: relative;
 }
 .col-account-folder-highlighted-data--C3L2f {
@@ -2158,7 +2172,7 @@ p {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8ZyBmaWxsPSIjMjk3ZWYyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjggLTE2MCkiPgogICAgPHBhdGggZD0iTTEzNywxNjAgTDEzNywxNjIgTDE0MC41LDE2MiBMMTM0LDE2OC41IEwxMzUuNSwxNzAgTDE0MiwxNjMuNSBMMTQyLDE2NyBMMTQ0LDE2NyBMMTQ0LDE2MS4wMDI5MjkgQzE0NCwxNjAuNDQ5MDI3IDE0My41NjIxMTksMTYwIDE0Mi45OTcwNzEsMTYwIEwxMzcsMTYwIFogTTEzNSwxNjIgTDEzNSwxNjAgTDEyOS4wMDI5MjksMTYwIEMxMjguNDQ5MDI3LDE2MCAxMjgsMTYwLjQ0NDYzMSAxMjgsMTYxLjAwMDg3MiBMMTI4LDE3NC45OTkxMjggQzEyOCwxNzUuNTUxODk0IDEyOC40NDQ2MzEsMTc2IDEyOS4wMDA4NzIsMTc2IEwxNDIuOTk5MTI4LDE3NiBDMTQzLjU1MTg5NCwxNzYgMTQ0LDE3NS41NjIxMTkgMTQ0LDE3NC45OTcwNzEgTDE0NCwxNjkgTDE0MiwxNjkgTDE0MiwxNzQgTDEzMCwxNzQgTDEzMCwxNjIgTDEzNSwxNjIgWiIvPgogIDwvZz4KPC9zdmc+Cg==") 0 no-repeat;
   display: block;
   padding-left: 1.3em;
-  margin-top: 0.5em;
+  margin-top: 1.5em;
 }
 .col-account-folder-save-btn--3xpQw {
   width: 100%;
@@ -2409,25 +2423,21 @@ p {
  * This file contains all needs for alerts
  */
 .col-account-edit-content--3hW-X {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .col-account-edit-content--3hW-X .col-account-edit-tabs--1Py1G .col-account-edit-tabpanel--1tL93 {
   padding-top: 0;
 }
 .col-account-edit-content--3hW-X .col-account-edit-tabs--1Py1G h4 {
   margin-top: 1.25rem;
-}
-.col-account-edit-content--3hW-X .col-account-edit-tabs--1Py1G svg {
-  width: 1em;
-  height: 1em;
-  vertical-align: baseline;
-  margin-left: 1em;
+  margin-bottom: 1em;
 }
 .col-account-connection-editor--h_en- {
   text-align: center;
   color: #95999d;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  font-size: 0.9em;
 }
 .coz-tabs--Qf3-n .coz-tab-list--22pz_ {
   border-bottom: 1px solid #d6d8da;
@@ -3258,6 +3268,7 @@ p {
  * This file contains all needs for alerts
  */
 .col-account-folder--WRBkg {
+  margin-top: 2em;
   position: relative;
 }
 .col-account-folder-highlighted-data--PrJXF {
@@ -3284,7 +3295,7 @@ p {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8ZyBmaWxsPSIjMjk3ZWYyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjggLTE2MCkiPgogICAgPHBhdGggZD0iTTEzNywxNjAgTDEzNywxNjIgTDE0MC41LDE2MiBMMTM0LDE2OC41IEwxMzUuNSwxNzAgTDE0MiwxNjMuNSBMMTQyLDE2NyBMMTQ0LDE2NyBMMTQ0LDE2MS4wMDI5MjkgQzE0NCwxNjAuNDQ5MDI3IDE0My41NjIxMTksMTYwIDE0Mi45OTcwNzEsMTYwIEwxMzcsMTYwIFogTTEzNSwxNjIgTDEzNSwxNjAgTDEyOS4wMDI5MjksMTYwIEMxMjguNDQ5MDI3LDE2MCAxMjgsMTYwLjQ0NDYzMSAxMjgsMTYxLjAwMDg3MiBMMTI4LDE3NC45OTkxMjggQzEyOCwxNzUuNTUxODk0IDEyOC40NDQ2MzEsMTc2IDEyOS4wMDA4NzIsMTc2IEwxNDIuOTk5MTI4LDE3NiBDMTQzLjU1MTg5NCwxNzYgMTQ0LDE3NS41NjIxMTkgMTQ0LDE3NC45OTcwNzEgTDE0NCwxNjkgTDE0MiwxNjkgTDE0MiwxNzQgTDEzMCwxNzQgTDEzMCwxNjIgTDEzNSwxNjIgWiIvPgogIDwvZz4KPC9zdmc+Cg==") 0 no-repeat;
   display: block;
   padding-left: 1.3em;
-  margin-top: 0.5em;
+  margin-top: 1.5em;
 }
 .col-account-folder-save-btn--WMhyc {
   width: 100%;
@@ -4382,6 +4393,9 @@ ul.connector-list {
   padding: 0 2em;
 }
 .account-description > p {
+  margin-top: 2em;
+}
+.account-description .title {
   margin-top: 2em;
 }
 .account-login {
