@@ -100,8 +100,8 @@
       "index": "index.html",
       "public": false
     },
-    "/services": {
-      "folder": "/services",
+    "/intents": {
+      "folder": "/intents",
       "index": "index.html",
       "public": false
     }
@@ -112,7 +112,7 @@
       "type": [
         "io.cozy.accounts"
       ],
-      "href": "/services"
+      "href": "/intents"
     }
   ],
   "locales": {
