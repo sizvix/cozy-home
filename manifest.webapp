@@ -1,6 +1,6 @@
 {
   "name": "Collect",
-  "slug": "app",
+  "slug": "collect",
   "icon": "cozy_collect.svg",
   "category": "cozy",
   "source": "https://github.com/cozy/cozy-collect.git@build",
@@ -100,8 +100,8 @@
       "index": "index.html",
       "public": false
     },
-    "/services": {
-      "folder": "/services",
+    "/intents": {
+      "folder": "/intents",
       "index": "index.html",
       "public": false
     }
@@ -112,7 +112,74 @@
       "type": [
         "io.cozy.accounts"
       ],
-      "href": "/services"
+      "href": "/intents"
     }
+  ],
+  "locales": {
+    "de": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "en": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "es": {
+      "name": "Recopilar",
+      "short_description": "Aplicación de configuración para konnectors. Toma los datos de sus servicios y los lleva a su Cozy.",
+      "long_description": "__Collect__ le permitirá capturar toda la información que usted logra utilizando muchos servicios en sitios web o en aplicaciones.\nDisfrute de esta nueva forma de controlar sus datos diarios: tada:",
+      "changes": "### Nuevas características :rocket:?\n\nConectores para sus cuentas bancarias!!: bank:"
+    },
+    "fr": {
+      "name": "Collect",
+      "short_description": "Application de configuration de connecteurs Cozy. Récupérer les données de vos différents services dans votre Cozy.",
+      "long_description": "__Collect__ vous permettra de récupérer toutes les informations que vous avez en utilisant de nombreux services sur internet.\nProfitez de cette nouvelle façon de récupérer le contrôle de vos données personnelles :tada:",
+      "changes": "### Nouvelles fonctionnalités :rocket:\n\nDe nouveaux types de connecteurs: les connecteurs bancaires!! :bank:"
+    },
+    "ja": {
+      "name": "Collect",
+      "short_description": "コネクターの設定アプリケーション。 お使いの Cozy にサービスデータを持ってきましょう。",
+      "long_description": "__Collect__ を使うと、プロバイダーのウェブサイトやアプリケーション上の数多くのサービスで使っているすべての情報を取得できます。\n日々のデータを管理するこの新しい方法をお楽しみください :tada:",
+      "changes": "### 新機能 :rocket:\n\n銀行口座のコネクター!!:bank:"
+    },
+    "nl": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "pl": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "sq": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "zh_CN": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    }
+  },
+  "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "ja",
+    "nl",
+    "pl",
+    "sq",
+    "zh_CN"
   ]
 }
