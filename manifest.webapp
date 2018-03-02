@@ -115,6 +115,13 @@
       "href": "/intents"
     }
   ],
+  "services": {
+    "clean-orphan-accounts": {
+      "type": "node",
+      "file": "/services/cleanOrphanAccounts.js",
+      "trigger": "@cron 0 0 * * * *"
+    }
+  },
   "locales": {
     "de": {
       "name": "Collect",

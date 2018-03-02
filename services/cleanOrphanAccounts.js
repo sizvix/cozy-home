@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 44);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4203,138 +4203,205 @@ module.exports = webpackEmptyContext;
 webpackEmptyContext.id = 43;
 
 /***/ }),
-/* 44 */,
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 var cozyFetch = __webpack_require__(10);
 
-var LOGIN_FAILED_ERROR = 'LOGIN_FAILED';
-var USER_ACTION_NEEDED_ERROR = 'USER_ACTION_NEEDED';
+var logMessagePrefix = function logMessagePrefix(level) {
+  return '[cozy-collect][cleanOrphanAccounts][' + level + ']:';
+};
 
-// for timestamp usage
-var ONE_HOUR = 3600 * 1000;
-var ONE_DAY = 24 * ONE_HOUR;
+var output = function output(level) {
+  return function () {
+    console.log.apply(console, [logMessagePrefix(level)].concat(Object.values(arguments)));
+  };
+};
 
-cozyFetch('GET', '/data/io.cozy.jobs/_all_docs?include_docs=true', null, true).then(function (jobs) {
-  var konnectorJobs = jobs.filter(function (job) {
-    return job.worker === 'konnector';
-  });
-  // sort by finished_at date
-  jobs.sort(function (a, b) {
-    a = new Date(a.finished_at);
-    b = new Date(b.finished_at);
-    return a > b ? -1 : a < b ? 1 : 0;
-  });
+var log = {
+  error: output('error'),
+  info: output('info')
+};
 
-  // get jobs sorted by trigger ID
-  var triggersMap = new Map();
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+var fetchAccounts = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var accounts;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            log.info('Fetching accounts...');
 
-  try {
-    for (var _iterator = konnectorJobs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var job = _step.value;
+            _context.next = 3;
+            return cozyFetch('GET', '/data/io.cozy.accounts/_all_docs?include_docs=true', null, true);
 
-      if (!job.trigger_id) continue;
-      var jobsArray = triggersMap.get(job.trigger_id) || [];
-      jobsArray.push(job);
-      triggersMap.set(job.trigger_id, jobsArray);
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
-  }
+          case 3:
+            accounts = _context.sent;
 
-  triggersMap.forEach(function (jobs, triggerId) {
-    // shouldn't have empty jobs array at this point
-    var erroredJobsCounter = 0;
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
 
-    try {
-      for (var _iterator2 = jobs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var _job = _step2.value;
+            log.info((accounts.length || 0) + ' account(s) has been found.');
 
-        // not an errored job, reset the counter
-        if (!_job.error || _job.state !== 'errored') {
-          erroredJobsCounter = 0;
-          continue;
+            return _context.abrupt('return', accounts);
+
+          case 6:
+          case 'end':
+            return _context.stop();
         }
-        switch (_job.error) {
-          // errors exceptions
-          case LOGIN_FAILED_ERROR:
-          case USER_ACTION_NEEDED_ERROR:
-            erroredJobsCounter = 0;
+      }
+    }, _callee, undefined);
+  }));
+
+  return function fetchAccounts() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var fetchTriggers = function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+    var result, hasTriggers, triggers;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            log.info('Fetching konnector triggers...');
+
+            _context2.next = 3;
+            return cozyFetch('GET', '/jobs/triggers?Worker=konnector', null, true);
+
+          case 3:
+            result = _context2.sent;
+            hasTriggers = result && result.data && result.data.length;
+            triggers = result.data;
+
+            if (!hasTriggers) {
+              _context2.next = 9;
+              break;
+            }
+
+            log.info((triggers.length || 0) + ' konnector trigger(s) has been found.');
+
+            return _context2.abrupt('return', triggers);
+
+          case 9:
+            return _context2.abrupt('return', []);
+
+          case 10:
+          case 'end':
+            return _context2.stop();
+        }
+      }
+    }, _callee2, undefined);
+  }));
+
+  return function fetchTriggers() {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
+var indexTriggersByAccounts = function indexTriggersByAccounts(triggers) {
+  return triggers.reduce(function (indexed, trigger) {
+    var account = trigger.attributes && trigger.attributes.message && trigger.attributes.message.account;
+
+    if (account) {
+      indexed[account] = trigger;
+    }
+
+    return indexed;
+  }, {});
+};
+
+var deleteAccounts = function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(accounts) {
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            log.info('Deleting accounts ' + accounts.map(function (doc) {
+              return doc._id;
+            }).join(', '));
+            _context3.next = 3;
+            return cozyFetch('POST', '/data/io.cozy.accounts/_bulk_docs', { docs: accounts.map(function (doc) {
+                return _extends({}, doc, { _deleted: true });
+              }) }, true);
+
+          case 3:
+          case 'end':
+            return _context3.stop();
+        }
+      }
+    }, _callee3, undefined);
+  }));
+
+  return function deleteAccounts(_x) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+var cleanOrphanAccounts = function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+    var accounts, triggers, triggersIndexedByAccount, orphanAccounts;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            _context4.next = 3;
+            return fetchAccounts();
+
+          case 3:
+            accounts = _context4.sent;
+            _context4.next = 6;
+            return fetchTriggers();
+
+          case 6:
+            triggers = _context4.sent;
+            triggersIndexedByAccount = indexTriggersByAccounts(triggers);
+            orphanAccounts = accounts.filter(function (account) {
+              return !triggersIndexedByAccount[account._id];
+            });
+
+
+            log.info((orphanAccounts.length || 0) + ' orphan account(s) has been found.');
+
+            if (!orphanAccounts.length) {
+              _context4.next = 13;
+              break;
+            }
+
+            _context4.next = 13;
+            return deleteAccounts(orphanAccounts);
+
+          case 13:
+            _context4.next = 18;
             break;
-          default:
-            erroredJobsCounter++;
+
+          case 15:
+            _context4.prev = 15;
+            _context4.t0 = _context4['catch'](0);
+
+            log.error(_context4.t0.message);
+
+          case 18:
+          case 'end':
+            return _context4.stop();
         }
       }
+    }, _callee4, undefined, [[0, 15]]);
+  }));
 
-      // don't relaunch if no errors or too many errors
-    } catch (err) {
-      _didIteratorError2 = true;
-      _iteratorError2 = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-          _iterator2.return();
-        }
-      } finally {
-        if (_didIteratorError2) {
-          throw _iteratorError2;
-        }
-      }
-    }
+  return function cleanOrphanAccounts() {
+    return _ref4.apply(this, arguments);
+  };
+}();
 
-    if (erroredJobsCounter === 0 || erroredJobsCounter > 2) return;
-
-    var lastJob = jobs[jobs.length - 1];
-    var currentTimestamp = new Date().getTime();
-    var lastFinishedTimestamp = new Date(lastJob.finished_at).getTime();
-    var timestampDifference = currentTimestamp - lastFinishedTimestamp;
-    if (erroredJobsCounter === 1 && timestampDifference > ONE_HOUR) {
-      // one last error found -> relaunch after one hour
-      cozyFetch('POST', '/jobs/triggers/' + triggerId + '/launch', null, true, {
-        Accept: 'application/vnd.api+json'
-      }).then(function (res) {
-        console.log('Trigger ' + res.data.id + ' relaunched (1st time).');
-      }).catch(function (err) {
-        console.log('Relaunching failed. ' + err);
-      });
-    } else if (erroredJobsCounter === 2 && timestampDifference > ONE_DAY) {
-      // two last error founds -> relaunch after one day
-      cozyFetch('POST', '/jobs/triggers/' + triggerId + '/launch', null, true, {
-        Accept: 'application/vnd.api+json'
-      }).then(function (res) {
-        console.log('Trigger ' + res.data.id + ' relaunched (2th time).');
-      }).catch(function (err) {
-        console.log('Relaunching failed. ' + err);
-      });
-    }
-  });
-}).catch(function (error) {
-  // the _all_docs endpoint returns a 404 error if no document with the given
-  // doctype exists.
-  if (error.status === 404) return [];
-  throw error;
-});
+cleanOrphanAccounts();
 
 /***/ })
 /******/ ]);
