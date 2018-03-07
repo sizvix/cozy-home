@@ -13248,7 +13248,7 @@ var deleteAccounts = function () {
               return doc._id;
             }).join(', '));
             _context3.next = 3;
-            return cozyFetch('POST', '/data/io.cozy.accounts/_bulk_docs', { docs: accounts.map(function (doc) {
+            return cozyFetch('POST', 'data/io.cozy.accounts/_bulk_docs', { docs: accounts.map(function (doc) {
                 return _extends({}, doc, { _deleted: true });
               }) }, true);
 
