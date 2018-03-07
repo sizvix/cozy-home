@@ -13161,7 +13161,7 @@ var fetchAccounts = function () {
             log.info('Fetching accounts...');
 
             _context.next = 3;
-            return cozyFetch('GET', '/data/io.cozy.accounts/_all_docs?include_docs=true', null, true);
+            return cozyFetch('GET', 'data/io.cozy.accounts/_all_docs?include_docs=true', null, true);
 
           case 3:
             accounts = _context.sent;
@@ -13194,7 +13194,7 @@ var fetchTriggers = function () {
             log.info('Fetching konnector triggers...');
 
             _context2.next = 3;
-            return cozyFetch('GET', '/jobs/triggers?Worker=konnector', null, true);
+            return cozyFetch('GET', 'jobs/triggers?Worker=konnector', null, true);
 
           case 3:
             result = _context2.sent;
