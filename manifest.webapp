@@ -3,7 +3,7 @@
   "slug": "collect",
   "icon": "cozy_collect.svg",
   "category": "cozy",
-  "source": "https://github.com/cozy/cozy-collect.git@build",
+  "source": "git://github.com/cozy/cozy-collect.git",
   "editor": "Cozy",
   "developer": {
     "name": "Cozy",
@@ -115,8 +115,21 @@
       "href": "/intents"
     }
   ],
+  "services": {
+    "clean-orphan-accounts": {
+      "type": "node",
+      "file": "/services/cleanOrphanAccounts.js",
+      "trigger": "@cron 0 0 * * * *"
+    }
+  },
   "locales": {
     "de": {
+      "name": "Collect",
+      "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
+      "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
+      "changes": "### New features :rocket:\n\nConnectors for you bank accounts!!:bank:"
+    },
+    "de_DE": {
       "name": "Collect",
       "short_description": "Configuration application for konnectors. Grab your services data to your Cozy.",
       "long_description": "__Collect__ will allow you to grab all your informations that you have using tons on services on providers websites or applications.\nEnjoy this new way to get control on your daily data :tada:",
@@ -173,6 +186,7 @@
   },
   "langs": [
     "de",
+    "de_DE",
     "en",
     "es",
     "fr",
