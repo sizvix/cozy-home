@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 371);
+/******/ 	return __webpack_require__(__webpack_require__.s = 368);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9483,13 +9483,11 @@ module.exports = function (regExp, replace) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {
+
 
 var fetch = __webpack_require__(337);
-var fs = __webpack_require__(366);
-var path = __webpack_require__(367);
 
-var exceptions = __webpack_require__(368);
+var exceptions = __webpack_require__(366);
 
 var ForbiddenException = exceptions.ForbiddenException,
     ServerErrorException = exceptions.ServerErrorException,
@@ -9499,18 +9497,12 @@ var ForbiddenException = exceptions.ForbiddenException,
     BadRequestException = exceptions.BadRequestException;
 
 
+if (!process.env.COZY_URL || !process.env.COZY_CREDENTIALS) {
+  throw new Error('COZY_URL and COZY_CREDENTIALS environment variables must be set.');
+}
+
 var COZY_URL = process.env.COZY_URL;
 var COZY_CREDENTIALS = process.env.COZY_CREDENTIALS;
-
-// DEV ONLY
-if (process.env.NODE_ENV !== 'production') {
-  var devOptionsPath = path.join(__dirname, '../../../cozy_dev.json');
-  if (fs.existsSync(devOptionsPath)) {
-    var devOptions = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-    COZY_URL = devOptions.COZY_URL;
-    COZY_CREDENTIALS = devOptions.COZY_CREDENTIALS;
-  }
-}
 
 var errorStatuses = {
   '400': BadRequestException,
@@ -9590,7 +9582,6 @@ function cozyFetch(method, path, body) {
 }
 
 module.exports = cozyFetch;
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
 /* 337 */
@@ -12970,18 +12961,6 @@ Request.prototype.clone = function() {
 
 /***/ }),
 /* 366 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
-
-/***/ }),
-/* 367 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
-/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13111,20 +13090,8 @@ module.exports = {
 };
 
 /***/ }),
-/* 369 */
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 369;
-
-/***/ }),
-/* 370 */,
-/* 371 */
+/* 367 */,
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
