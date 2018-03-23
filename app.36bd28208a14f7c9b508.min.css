@@ -1086,9 +1086,13 @@ p {
 .c-modal-header--branded--3hQVu {
   margin: 0 0 1rem;
   padding: calc(2rem - .3rem) 3rem 0 2rem;
-  font-weight: bold;
   overflow: visible;
   min-height: 2.5rem;
+}
+.c-modal-header--CNyQy h2,
+.c-modal-header--branded--3hQVu h2 {
+  margin: 0;
+  font-weight: bold;
 }
 .c-modal-header--branded--3hQVu {
   padding: 1rem 3rem;
@@ -3164,7 +3168,18 @@ ul.connector-list {
     width: 100%;
   }
   .c-modal-wrapper--UeRRs {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     padding: 1.5rem;
+  }
+  .c-modal-wrapper--fullscreen--2nJke {
+    padding: 0;
+  }
+  .c-modal--fullscreen--37HO- {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
   }
   .c-modal--large-spacing--2uWw9 .c-modal-header--CNyQy {
     padding: calc(2rem - .3rem) 2rem 0 2rem;
@@ -3389,6 +3404,9 @@ ul.connector-list {
   .c-modal-header--branded--3hQVu {
     margin-bottom: 0.5rem;
     padding: calc(1.5rem - .3rem) 2rem 0 1.5rem;
+  }
+  .c-modal-header--CNyQy h2,
+  .c-modal-header--branded--3hQVu h2 {
     font-size: 1.25rem;
   }
   .c-modal--small-spacing--3aGFQ .c-modal-header--CNyQy {
