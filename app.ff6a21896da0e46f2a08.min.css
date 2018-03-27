@@ -152,6 +152,7 @@ p {
 }
 .col-account-connection-data--2zxqR h4 {
   margin-bottom: 1rem;
+  white-space: nowrap;
 }
 .col-account-connection-data-access--3KAYt {
   margin-top: 0;
