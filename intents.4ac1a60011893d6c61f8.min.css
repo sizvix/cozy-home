@@ -18,9 +18,6 @@ p {
 .col-account-connection-header--bELaB svg {
   max-height: 3em;
 }
-.col-account-connection-icon--1Gt66 {
-  height: 3em;
-}
 .c-spinner--blue--3iyo3:before,
 .c-spinner--grey--1uLdj:before,
 .c-spinner--white--C_mq3:before,
@@ -136,7 +133,7 @@ p {
   margin-right: 1em;
 }
 .col-account-connection-form--3SFaC {
-  margin: 0 1em;
+  margin: 0 1em 0 0;
   min-width: 60%;
 }
 .col-account-connection-editor--vXwl3 {
@@ -150,7 +147,7 @@ p {
   margin-bottom: -0.5em;
 }
 .col-account-connection-data--2zxqR {
-  margin: 0 1em;
+  margin: 0 0 0 1em;
   min-width: 25%;
 }
 .col-account-connection-data--2zxqR h4 {
@@ -1670,6 +1667,9 @@ body {
   width: 1rem;
   height: 1rem;
 }
+.col-konnector-header-icon--3bHAH {
+  height: 3em;
+}
 @-webkit-keyframes spin--1NxjT {
   from {
     -webkit-transform: rotate(0deg);
@@ -1809,6 +1809,7 @@ ul.connector-list {
 }
 .col-voting-item {
   border: 2px dashed rgba(0,0,0,0.15);
+  padding-bottom: 0.5em;
 }
 .col-voting-item:hover {
   -webkit-box-shadow: none;
@@ -2013,6 +2014,9 @@ ul.connector-list {
           flex: 1;
   background-position: center right;
 }
+.coz-service-content-header {
+  width: 100%;
+}
 .coz-service-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -2021,13 +2025,20 @@ ul.connector-list {
   display: -ms-flexbox;
   display: flex;
   max-height: calc(100vh - (32 / basefont em));
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   padding: 1em;
-}
-.coz-service-content .col-account-connection-icon {
-  margin-top: 3em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  max-width: 68rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3em auto;
 }
 .coz-service-return + .coz-service-content .col-account-connection-icon {
   margin-top: 0;
