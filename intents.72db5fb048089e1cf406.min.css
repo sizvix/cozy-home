@@ -143,9 +143,6 @@ p {
   margin-bottom: 0;
   font-size: 0.9em;
 }
-.col-account-connection-connected-title--2hEyv {
-  margin-bottom: -0.5em;
-}
 .col-account-connection-data--2zxqR {
   margin: 0 0 0 1em;
   min-width: 25%;
@@ -1669,7 +1666,7 @@ body {
   height: 1rem;
 }
 .col-konnector-header-icon--3bHAH {
-  height: 3em;
+  height: 2em;
 }
 @-webkit-keyframes spin--1NxjT {
   from {
@@ -2041,9 +2038,6 @@ ul.connector-list {
           align-items: center;
   margin: 3em auto;
 }
-.coz-service-return + .coz-service-content .col-account-connection-icon {
-  margin-top: 0;
-}
 @media (max-width: 58.125rem) {
   .col-account-connection-header--bELaB {
     width: 100%;
@@ -2055,9 +2049,6 @@ ul.connector-list {
   }
   p {
     font-size: 0.875em;
-  }
-  .col-account-connection-icon--1Gt66 {
-    height: 2.5em;
   }
 }
 @media (max-width: 48rem) {
