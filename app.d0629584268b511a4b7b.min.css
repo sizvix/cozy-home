@@ -2061,20 +2061,57 @@ p {
   font-size: 1em;
   height: 3em;
 }
-.col-account-picker-button--i0dV3 span {
-  color: #32363f;
-}
-.col-account-picker-button--i0dV3 small {
-  line-height: 1rem;
-  color: #95999d;
-}
 .col-account-picker-button--i0dV3:not([disabled]):not([aria-disabled=true]):active,
 .col-account-picker-button--i0dV3:not([disabled]):not([aria-disabled=true]):focus,
 .col-account-picker-button--i0dV3:not([disabled]):not([aria-disabled=true]):hover {
   background-color: #f5f6f7;
 }
-.col-account-picker-button-label--2wT9u {
-  margin-top: 0.25em;
+.col-account-picker-button-account--3maAc {
+  text-transform: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X {
+  color: #32363f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X small {
+  line-height: 1rem;
+  color: #95999d;
+  text-align: left;
+}
+.col-account-picker-button-account--3maAc .col-account-picker-button-error--BLclo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f52d2d;
+}
+.col-account-picker-button-account--3maAc .col-account-picker-button-error--BLclo span {
+  margin-right: 0.5rem;
 }
 .col-account-picker-button-add--3ktKZ {
   border-style: dashed;
@@ -2087,16 +2124,6 @@ p {
 .col-account-picker-button-add--3ktKZ:not([disabled]):not([aria-disabled=true]):focus,
 .col-account-picker-button-add--3ktKZ:not([disabled]):not([aria-disabled=true]):hover {
   color: #0b61d6;
-}
-.col-account-picker-button-account--3maAc span {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-transform: none;
 }
 body,
 button,
