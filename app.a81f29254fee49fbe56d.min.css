@@ -2091,11 +2091,17 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: hidden;
+}
+.col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X span,
+.col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X small {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X small {
   line-height: 1rem;
   color: #95999d;
-  text-align: left;
 }
 .col-account-picker-button-account--3maAc .col-account-picker-button-error--BLclo {
   display: -webkit-box;
@@ -2108,10 +2114,19 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-preferred-size: 27rem;
+      flex-basis: 27rem;
   color: #f52d2d;
+  overflow: hidden;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .col-account-picker-button-account--3maAc .col-account-picker-button-error--BLclo span {
-  margin-right: 0.5rem;
+  margin: 0 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .col-account-picker-button-add--3ktKZ {
   border-style: dashed;
