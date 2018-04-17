@@ -16460,7 +16460,7 @@ var getMostAccurateErrorKey = exports.getMostAccurateErrorKey = function getMost
     fullKey = getKey(tested.join('.'));
   }
 
-  return fullKey || errorSegments[0];
+  return tested.length ? fullKey : getKey('UNKNOWN_ERROR');
 };
 
 /***/ }),
