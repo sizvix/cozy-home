@@ -2128,6 +2128,9 @@ p {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.col-account-picker-button-account--3maAc .col-account-picker-button-error--BLclo svg {
+  margin: 0;
+}
 .col-account-picker-button-add--3ktKZ {
   border-style: dashed;
   font-weight: bold;
