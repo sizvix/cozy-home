@@ -2092,6 +2092,7 @@ p {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
+  white-space: nowrap;
 }
 .col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X span,
 .col-account-picker-button-account--3maAc .col-account-picker-button-infos--3Il2X small {
@@ -2114,13 +2115,15 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-preferred-size: 27rem;
-      flex-basis: 27rem;
+  -ms-flex-preferred-size: 12.5rem;
+      flex-basis: 12.5rem;
   color: #f52d2d;
   overflow: hidden;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .col-account-picker-button-account--3maAc .col-account-picker-button-error--BLclo span {
   margin: 0 0.5rem;
