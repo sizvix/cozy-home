@@ -74,11 +74,11 @@ p {
   padding-left: 0;
 }
 body,
-button,
-input,
-optgroup,
-select,
-textarea {
+body button,
+body input,
+body optgroup,
+body select,
+body textarea {
   font-family: Lato, sans-serif;
 }
 @-webkit-keyframes spin--2166W {
@@ -2094,10 +2094,10 @@ ul.connector-list {
     justify-content: center;
     padding: 1.5rem;
   }
-  .c-modal-wrapper--fullscreen--2nJke {
+  .c-modal-wrapper--UeRRs.c-modal-wrapper--fullscreen--2nJke {
     padding: 0;
   }
-  .c-modal--fullscreen--37HO- {
+  .c-modal--97Ctb.c-modal--fullscreen--37HO- {
     height: 100%;
     width: 100%;
     border-radius: 0;
