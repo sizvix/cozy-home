@@ -149,7 +149,7 @@
       "name": "Recopilar",
       "short_description": "Aplicación de configuración para konnectors. Toma los datos de sus servicios y los lleva a su Cozy.",
       "long_description": "__Collect__ le permitirá capturar toda la información que usted logra utilizando muchos servicios en sitios web o en aplicaciones.\nDisfrute de esta nueva forma de controlar sus datos diarios: tada:",
-      "changes": "Two new connectors added:\n- Blablacar\n- Vinci Autoroutes"
+      "changes": "Se han añadido dos nuevos conectores:\n-Blabacar\n-Vinci Autoroutes"
     },
     "fr": {
       "name": "Collect",
