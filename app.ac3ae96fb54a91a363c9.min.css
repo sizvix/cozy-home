@@ -676,6 +676,7 @@ p {
 }
 .c-btn--1NF6Q.c-btn--full--1-5mu {
   width: 100%;
+  margin: 0;
 }
 .c-btn--1NF6Q.c-btn--narrow--1Pjmc {
   min-width: auto;
@@ -2254,6 +2255,7 @@ p {
 }
 .col-account-picker-button--i0dV3 {
   width: 100%;
+  margin: 0;
 }
 .col-account-picker-header-image--1VmWW {
   max-height: 2rem;
