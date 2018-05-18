@@ -3169,28 +3169,6 @@ body {
   padding: 1rem 0;
   text-align: center;
 }
-.col-error:before {
-  content: '';
-  display: block;
-  margin: 0 auto;
-  width: 16rem;
-  height: 8.75rem;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.col-error h2 {
-  font-size: 1.5rem;
-  margin: 2rem auto 0;
-  line-height: 1.3;
-  color: #32363f;
-  letter-spacing: -0.2px;
-}
-.col-error p {
-  margin-top: 0.3125rem;
-  color: #95999d;
-  line-height: 1.5;
-}
 #svg-sprite-content {
   position: absolute;
   width: 0;
@@ -3765,11 +3743,7 @@ ul.connector-list {
     display: block;
     overflow: visible;
   }
-  .col-wrapper:before {
-    content: '';
-    display: block;
-    height: 3rem;
-  }
+  .col-wrapper:before,
   .col-wrapper:after {
     content: '';
     display: block;
@@ -3790,16 +3764,6 @@ ul.connector-list {
     top: 0;
     left: 0;
     pointer-events: none;
-  }
-  .col-error:before {
-    width: 7.5rem;
-    height: 6.5625rem;
-  }
-  .col-error h2 {
-    margin: 2rem 1.5em 0;
-  }
-  .col-error p {
-    margin: 0.3125rem 1.5em 0;
   }
   .col-nav-submenu {
     display: none;
