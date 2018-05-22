@@ -3316,6 +3316,7 @@ iframe {
   color: #32363f;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  white-space: normal /* otherwise the tick can be wrongly placed in Firefox */;
 }
 .select-option--1TD9j:hover {
   background-color: #f5f6f7;
@@ -4943,7 +4944,7 @@ ul.connector-list {
     color: dodger-blue;
     text-transform: uppercase;
   }
-  [role=application] .coz-selectionbar--2UF9M .coz-selectionbar-separator--84gtR {
+  [role=application] .coz-selectionbar--2UF9M .coz-selectionbar-label--bV81X {
     position: absolute !important;
     border: 0 !important;
     width: 1px !important;
