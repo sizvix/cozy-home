@@ -89,20 +89,7 @@ class AccountConnection extends Component {
   }
 
   connectAccount(auth) {
-    const { konnector } = this.props
-    let { account } = this.state
-
-    if (account) {
-      return this.updateAccount(konnector, account, {
-        ...auth
-      })
-    }
-
-    account = {
-      auth
-    }
-
-    return this.runConnection(account).catch(error => this.handleError(error))
+    return this.runConnection({ auth }).catch(error => this.handleError(error))
   }
 
   connectAccountOAuth(accountType, values, scope) {
@@ -270,7 +257,12 @@ class AccountConnection extends Component {
         '_'
       )
     }
+
     // Update account
+    if (account) {
+      return this.updateAccount(account, valuesToSubmit)
+    }
+
     return konnector && konnector.oauth
       ? this.connectAccountOAuth(
           konnector.slug,
