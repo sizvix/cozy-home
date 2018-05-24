@@ -1,5 +1,31 @@
 [
   {
+    "slug": "lucca",
+    "name": "Lucca",
+    "icon": "lucca.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.lucca.fr",
+    "categories": ["other"],
+    "dataType": [
+      "document"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://lucca/stable"
+  },
+  {
     "slug": "ameli",
     "name": "Ameli",
     "editor": "Cozy Cloud",
@@ -1911,6 +1937,57 @@
     }
   },
   {
+    "slug": "ldlc",
+    "name": "Ldlc",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.ldlc.com",
+    "categories": ["shopping"],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "dataType": [
+      "bill"
+    ],
+    "source": "registry://ldlc/stable"
+  },
+  {
+    "slug": "leclercdrive",
+    "name": "Leclerc Drive",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.leclercdrive.fr",
+    "categories": ["shopping"],
+    "icon": "leclercdrive.png",
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://leclercdrive/stable"
+  },
+  {
     "oauth": true,
     "slug": "maif",
     "name": "MAIF",
@@ -2094,6 +2171,37 @@
     "source": "git://github.com/konnectors/cozy-konnector-nef.git#latest"
   },
   {
+    "slug": "netflix",
+    "name": "Netflix",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.netflix.com/login",
+    "categories": ["other"],
+    "data_types": [
+      "bill",
+      "activity",
+      "video_stream"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "profileName": {
+        "type": "text",
+        "isRequired": false
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://netflix/stable"
+  },
+  {
     "slug": "numericable",
     "name": "Numéricable",
     "editor": "Cozy Cloud",
@@ -2141,7 +2249,7 @@
         }
       }
     },
-    "source": "git://github.com/konnectors/cozy-konnector-orange.git#latest",
+    "source": "registry://orange/stable",
     "timeInterval": [15, 21]
   },
   {
