@@ -2,21 +2,11 @@
 // with a possible default icon
 
 export const getKonnectorIcon = konnector => {
-  let icon = null
   if (konnector.icon) {
-    try {
-      // See https://stackoverflow.com/questions/7650587/using-javascript-to-display-blob
-      var urlCreator = window && (window.URL || window.webkitURL)
-      return urlCreator.createObjectURL(konnector.icon)
-    } catch (error) {
-      console.warn(
-        `Cannot create icon url for konnector ${konnector.slug} (${
-          error.message
-        })`
-      )
-    }
+    return require(`../assets/konnectors/${konnector.icon}`)
   }
   const slug = konnector.slug
+  let icon = ''
   const extensions = ['.svg', '.png', '.gif', '.jpg']
   for (const ext of extensions) {
     try {
