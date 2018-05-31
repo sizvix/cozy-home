@@ -144,7 +144,7 @@
       "name": "Collect",
       "short_description": "Application de configuration de connecteurs Cozy. Récupérer les données de vos différents services dans votre Cozy.",
       "long_description": "__Collect__ vous permettra de récupérer toutes les informations que vous avez en utilisant de nombreux services sur internet.\nProfitez de cette nouvelle façon de récupérer le contrôle de vos données personnelles :tada:",
-      "changes": "Two new connectors added:\n- Blablacar\n- Vinci Autoroutes"
+      "changes": "Deux nouveaux connecteurs ajoutés :\n- Blablacar\n- Vinci Autoroutes"
     },
     "ja": {
       "name": "Collect",
