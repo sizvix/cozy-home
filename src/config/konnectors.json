@@ -1878,7 +1878,8 @@
       }
     },
     "frequency": "daily",
-    "icon": "lcl.png"
+    "icon": "lcl.png",
+    "source": "registry://lcl-linxo/stable"
   },
   {
     "slug": "ldlc",
