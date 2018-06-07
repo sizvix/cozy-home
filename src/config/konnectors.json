@@ -2124,7 +2124,7 @@
     "dataType": [
       "bill",
       "activity",
-      "video_stream"
+      "videostream"
     ],
     "fields": {
       "login": {
