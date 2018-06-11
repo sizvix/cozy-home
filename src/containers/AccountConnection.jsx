@@ -3,6 +3,8 @@ import styles from '../styles/accountConnection'
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+
 import {
   deleteConnection,
   getConnectionError,
@@ -42,15 +44,10 @@ class AccountConnection extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { existingAccount, success } = nextProps
+    const { existingAccount } = nextProps
 
-    const hasJustSucceed = !this.props.success && success
     const accountHasJustBeenCreated =
       !this.props.existingAccount && !!existingAccount
-
-    if (hasJustSucceed && this.props.onSuccess) {
-      this.props.onSuccess(this.state.account)
-    }
 
     if (accountHasJustBeenCreated) {
       this.setState({
@@ -124,6 +121,7 @@ class AccountConnection extends Component {
 
     this.props
       .fetchAccount(accountID)
+      .then(account => this.store.updateAccount(account, accountValues))
       .then(account => {
         const { konnector } = this.props
         this.setState({ account: account })
@@ -162,19 +160,19 @@ class AccountConnection extends Component {
       })
   }
 
-  updateAccount(connector, account, values) {
-    Object.assign(account.auth, values)
+  updateAccount(account, values) {
+    account.auth = Object.assign({}, account.auth, values)
 
     this.setState({ submitting: true })
 
     return this.store
-      .updateAccount(connector, account, values)
+      .updateAccount(account, values)
       .then(account => {
         this.setState({ account: account })
         return this.store
           .runAccount(
             this.props.trigger,
-            connector,
+            this.props.konnector,
             account,
             this.props.disableSuccessTimeout
           )
@@ -265,9 +263,9 @@ class AccountConnection extends Component {
 
     return konnector && konnector.oauth
       ? this.connectAccountOAuth(
-          konnector.slug,
+          konnector.oauth.account_type || konnector.slug,
           valuesToSubmit,
-          konnector.oauth_scope
+          konnector.oauth.scope
         )
       : this.connectAccount(valuesToSubmit)
   }
@@ -300,7 +298,6 @@ class AccountConnection extends Component {
       disableSuccessTimeout,
       displayAccountsCount,
       isUnloading,
-      onNext,
       allRequiredFieldsAreFilled,
       allRequiredFilledButPasswords,
       displayAdvanced,
@@ -311,23 +308,23 @@ class AccountConnection extends Component {
       fields,
       isSuccess,
       deleting,
+      editing,
       konnector,
       lastSuccess,
       error,
       forceConnection,
       isRunning,
+      onDone,
       queued,
       t,
       trigger,
       success,
       closeModal,
-      successButtonLabel,
-      accountsCount
+      successButtonLabel
     } = this.props
     const {
       account,
       connectionError,
-      editing,
       oAuthError,
       oAuthTerminated,
       submitting,
@@ -345,7 +342,7 @@ class AccountConnection extends Component {
           <KonnectorEdit
             isFetching={isFetching}
             account={account}
-            editing={editing}
+            editing
             connector={konnector}
             deleting={deleting}
             disableSuccessTimeout={disableSuccessTimeout}
@@ -356,7 +353,6 @@ class AccountConnection extends Component {
             isUnloading={isUnloading}
             lastSuccess={lastSuccess}
             oAuthTerminated={oAuthTerminated}
-            onCancel={() => this.cancel()}
             onDelete={() => this.deleteConnection()}
             onForceConnection={forceConnection}
             onSubmit={this.onSubmit}
@@ -365,7 +361,6 @@ class AccountConnection extends Component {
             isValid={isValid}
             allRequiredFilledButPasswords={allRequiredFilledButPasswords}
             isValidButPasswords={isValidButPasswords}
-            success={success}
             trigger={trigger}
             closeModal={closeModal}
             dirty={dirty}
@@ -374,7 +369,6 @@ class AccountConnection extends Component {
           />
         ) : (
           <KonnectorInstall
-            accountsCount={accountsCount}
             displayAccountsCount={displayAccountsCount}
             isFetching={isFetching}
             account={createdAccount}
@@ -382,7 +376,6 @@ class AccountConnection extends Component {
             isValid={isValid}
             dirty={dirty}
             isSuccess={isSuccess}
-            deleting={deleting}
             disableSuccessTimeout={disableSuccessTimeout}
             driveUrl={driveUrl}
             error={error || oAuthError || connectionError}
@@ -390,9 +383,8 @@ class AccountConnection extends Component {
             queued={queued}
             isUnloading={isUnloading}
             oAuthTerminated={oAuthTerminated}
-            onNext={onNext}
+            onDone={onDone}
             onCancel={() => this.cancel()}
-            onDelete={() => this.deleteConnection()}
             onSubmit={() => this.onSubmit()}
             submitting={submitting || isRunning}
             success={success || queued}
@@ -439,5 +431,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  statefulForm()(translate()(AccountConnection))
+  statefulForm()(withRouter(translate()(AccountConnection)))
 )

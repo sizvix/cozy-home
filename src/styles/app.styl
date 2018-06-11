@@ -33,15 +33,17 @@
     padding-right   .5em
 
     @media (max-width: (768/basefont)rem)
-        .col-top-bar-title
-            font-size 24px
-            margin    0
-            position  fixed
-            top       .75rem
-            left      2.5rem
-            right     0
-            z-index   20
-            height    48px
+        margin-top .5rem
+        padding 0
+
+        button
+            width   100%
+
+[role=banner] .col-view-title
+    padding     0
+    margin      0
+    display     flex
+    align-self  center
 
 .col-button
     @extend $button
@@ -51,20 +53,21 @@
     width           16px
     height          16px
 
-.col-link
-    color dodgerBlue
-    text-decoration none
-    font-weight bold
-    display block
-    margin-top 1em
 
-.col-picture-for-emtpy-list
-    text-align      center
-    &--img
-        max-width   400px
-        width       100%
-    h2
-        font-size   1.125rem
-        line-height 1.5rem
-    p
-        color       coolGrey
+.col-account-connection-header
+    @media (max-width: (930/basefont)rem)
+        width   100%
+
+    svg
+        max-height (48/basefont)em
+
+.col-account-connection-back
+    height 2em
+    display block
+    float left
+    margin-right 1em
+    padding-top .25em
+
+    svg
+        height 1.5em
+        width 1.5em

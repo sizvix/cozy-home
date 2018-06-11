@@ -1,6 +1,5 @@
 import React from 'react'
 import { translate } from 'cozy-ui/react/I18n'
-import Spinner from 'cozy-ui/react/Spinner'
 import styles from '../styles/konnectorInstall'
 
 import AccountConnectionData from './AccountConnectionData'
@@ -8,50 +7,45 @@ import AccountLoginForm from './AccountLoginForm'
 import DescriptionContent from './DescriptionContent'
 import KonnectorMaintenance from './KonnectorMaintenance'
 import KonnectorSuccess from './KonnectorSuccess'
-import { NavLink } from 'react-router-dom'
 
-import { isKonnectorLoginError } from '../lib/konnectors'
+import { getKonnectorMessage, isKonnectorLoginError } from '../lib/konnectors'
 import ErrorDescription from './ErrorDescriptions'
 
 import securityIcon from '../assets/icons/color/icon-cloud-lock.svg'
 
-export const KonnectorInstall = ({
-  t,
-  account,
-  connector,
-  deleting,
-  disableSuccessTimeout,
-  displayAccountsCount,
-  driveUrl,
-  error,
-  fields,
-  queued,
-  isUnloading,
-  oAuthTerminated,
-  onCancel,
-  editing,
-  onDelete,
-  onNext,
-  onSubmit,
-  submit,
-  submitting,
-  success,
-  successMessage,
-  successMessages,
-  trigger,
-  allRequiredFieldsAreFilled,
-  displayAdvanced,
-  toggleAdvanced,
-  isFetching,
-  isValid,
-  isSuccess,
-  dirty,
-  successButtonLabel,
-  accountsCount,
-  maintenance,
-  lang
-}) => {
-  const { hasDescriptions, editor } = connector
+export const KonnectorInstall = props => {
+  const {
+    t,
+    account,
+    connector,
+    disableSuccessTimeout,
+    driveUrl,
+    error,
+    fields,
+    queued,
+    isUnloading,
+    oAuthTerminated,
+    onCancel,
+    editing,
+    onDone,
+    onSubmit,
+    submitting,
+    success,
+    successMessage,
+    successMessages,
+    trigger,
+    allRequiredFieldsAreFilled,
+    displayAdvanced,
+    toggleAdvanced,
+    isFetching,
+    isValid,
+    isSuccess,
+    dirty,
+    successButtonLabel,
+    maintenance,
+    lang
+  } = props
+  const { editor } = connector
   const hasLoginError = isKonnectorLoginError(error)
   const hasErrorExceptLogin = !!error && !hasLoginError
   const isRunningInQueue = queued && submitting
@@ -60,34 +54,13 @@ export const KonnectorInstall = ({
     <div className={styles['col-account-connection-content']}>
       <div className={styles['col-account-connection-form']}>
         {hasErrorExceptLogin && ErrorDescription({ t, error, connector })}
-        {displayAccountsCount &&
-          !!accountsCount &&
-          !error &&
-          !submitting &&
-          !success &&
-          Number.isInteger(accountsCount) && (
-            <div>
-              <h4 className={styles['col-account-connection-connected-title']}>
-                {t('account.config.connected_title', {
-                  smart_count: accountsCount
-                })}
-              </h4>
-              <NavLink to="/connected" className="col-link">
-                {t('account.config.connected_link')}
-              </NavLink>
-            </div>
-          )}
         {(!error || hasLoginError) &&
           !isRunningInQueue &&
           !success &&
           !maintenance && (
             <DescriptionContent
               title={t('account.config.title', { name: connector.name })}
-              messages={
-                hasDescriptions && hasDescriptions.connector
-                  ? [t(`connector.${connector.slug}.description.connector`)]
-                  : []
-              }
+              messages={[getKonnectorMessage(t, connector, 'terms')]}
             >
               {!connector.oauth &&
                 !error && (
@@ -104,10 +77,6 @@ export const KonnectorInstall = ({
           )}
         {maintenance && maintenance.longTerm ? (
           <KonnectorMaintenance maintenance={maintenance} lang={lang} />
-        ) : isFetching ? (
-          <div className={styles['col-account-connection-fetching']}>
-            <Spinner size="xxlarge" middle="true" />
-          </div>
         ) : !account || !success || hasLoginError ? (
           <AccountLoginForm
             connectorSlug={connector.slug}
@@ -139,7 +108,7 @@ export const KonnectorInstall = ({
             folderId={trigger && trigger.message.folder_to_save}
             isRunningInQueue={isRunningInQueue}
             isUnloading={isUnloading}
-            onNext={onNext}
+            onDone={onDone}
             onCancel={onCancel}
             success={success}
             title={successMessage}

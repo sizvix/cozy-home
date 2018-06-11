@@ -1,5 +1,31 @@
 [
   {
+    "slug": "autolib",
+    "name": "Autolib",
+    "icon": "autolib.svg",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.autolib.eu",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://autolib/stable"
+  },
+  {
     "slug": "lucca",
     "name": "Lucca",
     "icon": "lucca.png",
@@ -51,6 +77,32 @@
       }
     },
     "source": "git://github.com/konnectors/cozy-konnector-ameli.git#latest"
+  },
+  {
+    "slug": "auchandrive",
+    "name": "Auchan Drive",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://auchandrive.fr",
+    "categories": ["shopping"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "testing": true,
+    "source": "registry://auchandrive/stable"
   },
   {
     "slug": "axabanque102",
@@ -761,6 +813,61 @@
     }
   },
   {
+    "slug": "cge-ipx800-v4",
+    "name": "CGE-IPX800-V4",
+    "editor": "Cozy Cloud",
+    "vendorLink": "http://gce-electronics.com/fr/",
+    "categories": ["other"],
+    "icon": "cgeipx800v4.png",
+    "dataType": [
+      "document"
+    ],
+    "fields": {
+      "loginUrl": {
+        "type": "text"
+      },
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://cge-ipx800-v4/stable"
+  },
+  {
+    "slug": "digitick",
+    "name": "Digitick",
+    "icon": "digitick.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.digitick.com/",
+    "categories": ["others"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "tel"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://digitick/stable"
+  },
+  {
     "name": "Bank Categorization",
     "slug": "bankcategorization",
     "editor": "Cozy Cloud",
@@ -772,6 +879,32 @@
     ],
     "fields": {},
     "source": "git://github.com/konnectors/cozy-konnector-bank-categorization.git#latest"
+  },
+  {
+    "slug": "cdiscount",
+    "name": "Cdiscount",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://clients.cdiscount.com/Account/Login.html",
+    "categories": ["shopping"],
+    "icon": "cdiscount.png",
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://cdiscount/stable"
   },
   {
     "slug": "cdngroup109",
@@ -1351,6 +1484,32 @@
     "source": "registry://creditmaritime/stable"
   },
   {
+    "slug": "cultura",
+    "name": "Cultura",
+    "icon": "cultura.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.cultura.com",
+    "categories": ["shopping"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://cultura/stable"
+  },
+  {
     "slug": "darty",
     "name": "Darty",
     "editor": "Cozy Cloud",
@@ -1456,6 +1615,32 @@
     "source": "git://github.com/konnectors/cozy-konnector-directenergie.git#latest"
   },
   {
+    "slug": "easyjet",
+    "name": "easyJet",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.easyjet.com",
+    "categories": ["transport"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "testing": true,
+    "source": "git://github.com/konnectors/easyjet.git#latest"
+  },
+  {
     "slug": "edf",
     "name": "EDF",
     "editor": "Cozy Cloud",
@@ -1483,6 +1668,31 @@
       }
     },
     "source": "git+ssh://git@gitlab.cozycloud.cc/labs/cozy-konnector-edf.git#build"
+  },
+  {
+    "slug": "electricitestrasbourg",
+    "name": "ES Strasbourg Électricité",
+    "editor": "Cozy Cloud",
+    "vendorLink": "http://www.es.fr/",
+    "categories": ["energy"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://electricitestrasbourg/stable"
   },
   {
     "oauth": true,
@@ -1531,6 +1741,28 @@
       }
     },
     "source": "git://github.com/konnectors/cozy-konnector-enercoop.git#latest"
+  },
+  {
+    "oauth": true,
+    "slug": "facebook",
+    "name": "Facebook",
+    "editor": "Cozy Cloud",
+    "vendorLink": "facebook.com",
+    "testing": true,
+    "categories": ["other"],
+    "fields": {
+      "access_token": {
+        "type": "hidden"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "git://github.com/konnectors/cozy-konnector-facebook.git#latest",
+    "oauth_scope": "user_photos"
   },
   {
     "slug": "fortuneo84",
@@ -1686,6 +1918,32 @@
     "source": "registry://harmonie/stable"
   },
   {
+    "slug": "helloasso",
+    "name": "Helloasso",
+    "icon": "helloasso.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.helloasso.com",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://helloasso/stable"
+  },
+  {
     "slug": "hellobank145",
     "name": "Hello bank!",
     "editor": "Cozy Cloud",
@@ -1813,6 +2071,58 @@
     }
   },
   {
+    "slug": "inulogic",
+    "name": "Inulogic",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.inulogic.fr",
+    "categories": ["other"],
+    "icon": "inulogic.png",
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "dataType": [
+      "bill"
+    ],
+    "source": "registry://inulogic/stable"
+  },
+  {
+    "slug": "justeat",
+    "name": "Just Eat",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.just-eat.fr/",
+    "categories": ["other"],
+    "icon": "justeat.png",
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://justeat/stable"
+  },
+  {
     "slug": "labanquepostale44",
     "name": "La Banque Postale (Particuliers)",
     "editor": "Cozy Cloud",
@@ -1828,8 +2138,14 @@
       "identifier": {
         "type": "text"
       },
-      "secret": {
+      "password": {
         "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
       }
     },
     "frequency": "daily",
@@ -1848,8 +2164,7 @@
     "name": "LCL",
     "categories": ["banking"],
     "dataType": [
-      "bankAccounts",
-      "bankTransactions"
+      "bill"
     ],
     "fields": {
       "bankId": {
@@ -1873,8 +2188,14 @@
       "new_identifier": {
         "type": "text"
       },
-      "secret": {
+      "password": {
         "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
       }
     },
     "frequency": "daily",
@@ -2009,6 +2330,32 @@
     "source": "registry://malakoffmederic/stable"
   },
   {
+    "slug": "malentille",
+    "name": "Ma lentille",
+    "icon": "malentille.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.malentille.com/authentification",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://malentille/stable"
+  },
+  {
     "slug": "materielnet",
     "name": "Materiel.net",
     "editor": "Cozy Cloud",
@@ -2032,6 +2379,32 @@
       "bill"
     ],
     "source": "git://github.com/nicofrand/cozy-konnector-materielnet.git#build"
+  },
+  {
+    "slug": "mediaprt",
+    "name": "Mediapart",
+    "icon": "mediapart.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.mediapart.fr/",
+    "categories": ["other"],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "dataType": [
+      "bill"
+    ],
+    "source": "registry://mediapart/stable"
   },
   {
     "slug": "mgen",
@@ -2089,6 +2462,57 @@
     "parameters": {
       "bankId": "96"
     }
+  },
+  {
+    "slug": "monoprix",
+    "name": "Monoprix",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.monoprix.fr",
+    "categories": ["shopping"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "email": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "testing": true,
+    "source": "git://github.com/konnectors/monoprix.git#latest"
+  },
+  {
+    "slug": "msf",
+    "name": "Médecins sans frontières",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://don.msf.fr/donateur/index.php",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://msf/stable"
   },
   {
     "slug": "nef",
@@ -2170,6 +2594,32 @@
       }
     },
     "source": "registry://numericable/stable"
+  },
+  {
+    "slug": "o2",
+    "name": "O2",
+    "icon": "o2.svg",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://client.o2.fr/connexion/",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://o2/stable"
   },
   {
     "slug": "orange",
@@ -2327,7 +2777,7 @@
         }
       }
     },
-    "source": "git://github.com/cozy/cozy-konnector-redbox.git#build"
+    "source": "git://github.com/cozy/cozy-konnector-redbox.git#latest"
   },
   {
     "slug": "redmobile",
@@ -2352,7 +2802,33 @@
         }
       }
     },
-    "source": "git://github.com/cozy/cozy-konnector-redmobile.git#build"
+    "source": "git://github.com/cozy/cozy-konnector-redmobile.git#latest"
+  },
+  {
+    "slug": "scaleway",
+    "name": "Scaleway",
+    "icon": "scaleway.svg",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.scaleway.com/",
+    "categories": ["host_provider"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://scaleway/stable"
   },
   {
     "slug": "sfrbox",
@@ -2377,7 +2853,7 @@
     "dataType": [
       "bill"
     ],
-    "source": "git://github.com/cozy/cozy-konnector-sfrbox.git#build"
+    "source": "git://github.com/cozy/cozy-konnector-sfrbox.git#latest"
   },
   {
     "slug": "sfrmobile",
@@ -2402,7 +2878,7 @@
     "dataType": [
       "bill"
     ],
-    "source": "git://github.com/cozy/cozy-konnector-sfrmobile.git#build"
+    "source": "git://github.com/cozy/cozy-konnector-sfrmobile.git#latest"
   },
   {
     "slug": "sncf",
@@ -2560,8 +3036,25 @@
     "source": "registry://trainline/stable"
   },
   {
+    "slug": "tricount",
+    "name": "Tricount",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.tricount.com/fr/",
+    "categories": ["other"],
+    "fields": {
+      "tricountUrl": {
+        "type": "text"
+      }
+    },
+    "dataType": [
+      "refund"
+    ],
+    "source": "registry://tricount/stable",
+    "testing": "true"
+  },
+  {
     "slug": "vinciautoroute",
-    "name": "Vinci autoroute télépeage",
+    "name": "Vinci autoroute télépéage",
     "editor": "Cozy Cloud",
     "icon": "vinciautoroute.png",
     "vendorLink": "https://espaceabonnes.vinci-autoroutes.com/Authentification",
@@ -2585,5 +3078,98 @@
       "consumption"
     ],
     "source": "registry://vinciautoroute/stable"
+  },
+  {
+    "slug": "paybyphone",
+    "name": "PayByPhone",
+    "editor": "Cozy Cloud",
+    "icon": "paybyphone.png",
+    "vendorLink": "https://m2.paybyphone.fr/login",
+    "categories": ["transport"],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      }
+    },
+    "dataType": [
+      "bill"
+    ],
+    "source": "registry://paybyphone/stable"
+  },
+  {
+    "slug": "splitwise",
+    "name": "Splitwise",
+    "editor": "Cozy Cloud",
+    "icon": "splitwise.png",
+    "vendorLink": "https://www.splitwise.com",
+    "categories": ["other"],
+    "fields": {
+      "consumerKey": {
+        "type": "text"
+      },
+      "consumerSecret": {
+        "type": "password"
+      }
+    },
+    "dataType": [
+      "refund"
+    ],
+    "testing": "true",
+    "source": "registry://splitwise/stable"
+  },
+  {
+    "slug": "veoliaeau",
+    "name": "Veolia Eau",
+    "icon": "veoliaeau.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "https://www.service.eau.veolia.fr/home.html",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "login": {
+        "type": "text"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://veoliaeau/stable"
+  },
+  {
+    "slug": "zooplus",
+    "name": "Zooplus",
+    "icon": "zooplus.png",
+    "editor": "Cozy Cloud",
+    "vendorLink": "http://www.zooplus.fr/",
+    "categories": ["other"],
+    "dataType": [
+      "bill"
+    ],
+    "fields": {
+      "email": {
+        "type": "email"
+      },
+      "password": {
+        "type": "password"
+      },
+      "advancedFields": {
+        "folderPath": {
+          "advanced": true,
+          "isRequired": false
+        }
+      }
+    },
+    "source": "registry://zooplus/stable"
   }
 ]

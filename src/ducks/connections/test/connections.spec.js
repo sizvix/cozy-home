@@ -5,7 +5,7 @@ import connections, {
   createConnection,
   deleteConnection,
   enqueueConnection,
-  getKonnectorConnectedAccount,
+  getConnectionsByKonnector,
   getQueue,
   launchTriggerAndQueue,
   purgeQueue,
@@ -194,42 +194,47 @@ describe('Connections Duck', () => {
   })
 
   describe('Selectors', () => {
-    describe('getKonnectorConnectedAccount', () => {
-      it("returns the first konnector's connected account", () => {
+    describe('getConnectionsByKonnector', () => {
+      it('returns expected connections', () => {
         const state = {
           konnectors: {
-            testprovider: {
-              '17375ac5a59e4d6585fc7d1e1c75ec74': {},
-              '63c670ea9d7b11e7b5888c88b1c12d46': {},
-              '768ccdaa9d7b11e7869aae88b1c12d46': {}
+            provider: {
+              triggers: {
+                '81a548fca81455ec2c2644dd55009990': {
+                  account: '81a548fca81455ec2c2644dd55008b52',
+                  error: 'LOGIN_FAILED',
+                  hasError: true,
+                  isConnected: false,
+                  isRunning: false
+                },
+                '63c670ea9d7b11e7b5888c88b1c12d46': {
+                  account: '17375ac5a59e4d6585fc7d1e1c75ec74',
+                  error: null,
+                  hasError: false,
+                  isConnected: true,
+                  isRunning: true
+                }
+              }
             }
           }
         }
 
-        const konnector = { slug: 'testprovider' }
+        const validKonnectors = ['provider']
+        const validAccounts = ['81a548fca81455ec2c2644dd55008b52']
 
-        expect(getKonnectorConnectedAccount(state, konnector)).toMatchSnapshot()
-      })
-
-      it.skip('returns null when no konnector is registered with a connection', () => {
         expect(
-          getKonnectorConnectedAccount({}, { slug: 'testprovider' })
+          getConnectionsByKonnector(
+            state,
+            'provider',
+            validAccounts,
+            validKonnectors
+          )
         ).toMatchSnapshot()
-      })
-
-      it.skip('returns null when konnector does not have account', () => {
-        const state = {
-          testprovider: {}
-        }
-
-        const konnector = { slug: 'testprovider' }
-
-        expect(getKonnectorConnectedAccount(state, konnector)).toMatchSnapshot()
       })
     })
 
     describe('getQueue', () => {
-      it.skip('returns one queued connection per queued account', () => {
+      it('returns one queued connection per queued account', () => {
         const state = {
           data: {
             testprovider: {
@@ -248,14 +253,14 @@ describe('Connections Duck', () => {
           }
         }
 
-        const konnectorsRegistry = {
+        const konnectors = {
           testprovider: {
             name: 'Test Provider',
             slug: 'testprovider'
           }
         }
 
-        const result = getQueue(state, konnectorsRegistry)
+        const result = getQueue(state, konnectors)
 
         expect(result).toMatchSnapshot()
       })

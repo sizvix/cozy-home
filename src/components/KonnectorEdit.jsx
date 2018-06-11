@@ -12,44 +12,42 @@ import KonnectorFolder from './KonnectorFolder'
 import KonnectorMaintenance from './KonnectorMaintenance'
 import KonnectorSync from './KonnectorSync'
 
-import { isKonnectorLoginError } from '../lib/konnectors'
+import { getKonnectorMessage, isKonnectorLoginError } from '../lib/konnectors'
 import { getAccountName } from '../lib/helpers'
 import ErrorDescription from './ErrorDescriptions'
 
 import warningSvg from '../assets/sprites/icon-warning.svg'
 
-export const KonnectorEdit = ({
-  t,
-  account,
-  connector,
-  deleting,
-  disableSuccessTimeout,
-  allRequiredFieldsAreFilled,
-  allRequiredFilledButPasswords,
-  isValid,
-  isValidButPasswords,
-  dirty,
-  driveUrl,
-  error,
-  fields,
-  folderPath,
-  editing,
-  isFetching,
-  isUnloading,
-  lastSuccess,
-  oAuthTerminated,
-  folders,
-  closeModal,
-  onCancel,
-  onDelete,
-  onForceConnection,
-  onSubmit,
-  submitting,
-  success,
-  trigger,
-  maintenance,
-  lang
-}) => {
+export const KonnectorEdit = props => {
+  const {
+    t,
+    account,
+    connector,
+    deleting,
+    disableSuccessTimeout,
+    allRequiredFieldsAreFilled,
+    allRequiredFilledButPasswords,
+    isValid,
+    isValidButPasswords,
+    dirty,
+    driveUrl,
+    error,
+    fields,
+    isFetching,
+    isUnloading,
+    lastSuccess,
+    oAuthTerminated,
+    folders,
+    closeModal,
+    onDelete,
+    onForceConnection,
+    onSubmit,
+    submitting,
+    trigger,
+    maintenance,
+    lang
+  } = props
+
   const warningIcon = (
     <svg className={styles['item-status-icon']}>
       <use xlinkHref={`#${warningSvg.id}`} /> }
@@ -57,7 +55,7 @@ export const KonnectorEdit = ({
   )
   const hasLoginError = isKonnectorLoginError(error)
   const hasErrorExceptLogin = !!error && !hasLoginError
-  const { hasDescriptions, editor } = connector
+  const { editor } = connector
   // assign accountName placeholder
   if (fields.accountName)
     fields.accountName.placeholder = getAccountName(account)
@@ -100,6 +98,7 @@ export const KonnectorEdit = ({
               maintenance={maintenance}
               submitting={submitting}
               onForceConnection={onForceConnection}
+              trigger={trigger}
             />
             {account &&
               trigger &&
@@ -124,11 +123,7 @@ export const KonnectorEdit = ({
           >
             <DescriptionContent
               title={t('account.config.title', { name: connector.name })}
-              messages={
-                hasDescriptions && hasDescriptions.connector
-                  ? [t(`connector.${connector.slug}.description.connector`)]
-                  : []
-              }
+              messages={[getKonnectorMessage(t, connector, 'terms')]}
             />
 
             {
@@ -138,7 +133,6 @@ export const KonnectorEdit = ({
                 error={hasLoginError}
                 fields={fields}
                 dirty={dirty}
-                editing={editing}
                 forceEnabled={!!error}
                 isOAuth={connector.oauth}
                 isUnloading={isUnloading}

@@ -3,7 +3,7 @@ import styles from '../styles/connectionManagement.styl'
 import React, { Component } from 'react'
 import { cozyConnect } from 'redux-cozy-client'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
 import { getAccount } from '../ducks/accounts'
 import {
@@ -13,46 +13,44 @@ import {
   isCreatingConnection,
   startConnectionCreation
 } from '../ducks/connections'
+import { getKonnector } from '../ducks/konnectors'
 import {
-  getRegistryKonnector,
-  isFetchingRegistryKonnector
-} from '../ducks/registry'
-import {
+  getConnectionsByKonnector,
   getCreatedConnectionAccount,
   getTriggerByKonnectorAndAccount,
   getKonnectorsInMaintenance
 } from '../reducers'
 
+import Icon from 'cozy-ui/react/Icon'
 import Modal, { ModalContent, ModalHeader } from 'cozy-ui/react/Modal'
 import AccountConnection from './AccountConnection'
 import KonnectorHeaderIcon from '../components/KonnectorHeaderIcon'
 import Notifier from '../components/Notifier'
+
+import backIcon from '../assets/sprites/icon-arrow-left.svg'
 
 class ConnectionManagement extends Component {
   constructor(props, context) {
     super(props, context)
     this.store = this.context.store
 
+    const account = props.existingAccount || props.createdAccount
+
     // Set values
-    const values =
-      (props.existingAccount &&
-        Object.assign({}, props.existingAccount.auth)) ||
-      {}
+    const values = (account && Object.assign({}, account.auth)) || {}
     // Split the actual folderPath account to get namePath & folderPath values
-    if (props.existingAccount && values.folderPath) {
-      values.folderPath = props.existingAccount.auth.folderPath.substring(
+    if (account && values.folderPath) {
+      values.folderPath = account.auth.folderPath.substring(
         0,
-        props.existingAccount.auth.folderPath.lastIndexOf('/')
+        account.auth.folderPath.lastIndexOf('/')
       )
-      values.namePath = props.existingAccount.auth.namePath
+      values.namePath = account.auth.namePath
     } else if (
-      (!props.existingAccount &&
+      (!account &&
         props.konnector.fields &&
         props.konnector.fields.advancedFields &&
         props.konnector.fields.advancedFields.folderPath) ||
-      (!props.existingAccount &&
-        props.konnector.fields &&
-        props.konnector.folderPath)
+      (!account && props.konnector.fields && props.konnector.folderPath)
     ) {
       values.folderPath = this.context.t('account.config.default_folder', {
         name: props.konnector.name
@@ -60,7 +58,6 @@ class ConnectionManagement extends Component {
     }
 
     this.state = {
-      isWorking: true,
       isClosing: false,
       values: values
     }
@@ -101,44 +98,56 @@ class ConnectionManagement extends Component {
   }
 
   render() {
-    const { konnector } = this.props
+    const {
+      connections,
+      createdAccount,
+      existingAccount,
+      konnector
+    } = this.props
     // Do not even render if there is no konnector (in case of wrong URL)
     if (!konnector) return
 
-    const { isWorking } = this.props
     const { isClosing, values } = this.state
-    const { t } = this.context
+
+    const backRoute = connections.length
+      ? `/connected/${konnector.slug}`
+      : '/connected'
 
     return (
       <Modal
         dismissAction={() => this.gotoParent()}
+        mobileFullscreen
+        size="large"
         className={styles['col-account-modal']}
       >
         <ModalHeader>
-          <div className={styles['col-account-connection-header']}>
+          <div className="col-account-connection-header">
+            {backRoute && (
+              <NavLink
+                to={backRoute}
+                className="col-account-connection-back"
+                onClick={this.onEnd}
+              >
+                <Icon icon={backIcon} />
+              </NavLink>
+            )}
             <KonnectorHeaderIcon konnector={konnector} />
           </div>
         </ModalHeader>
         <ModalContent>
-          {isWorking ? (
-            <div className={styles['installing']}>
-              <div className={styles['installing-spinner']} />
-              <div>{t('loading.working')}</div>
-            </div>
-          ) : (
-            <AccountConnection
-              alertDeleteSuccess={messages => this.alertDeleteSuccess(messages)}
-              displayAccountsCount
-              onNext={() => this.gotoParent()}
-              onCancel={() => this.gotoParent()}
-              isUnloading={isClosing}
-              values={values}
-              closeModal={() => this.gotoParent()}
-              {...this.state}
-              {...this.props}
-              {...this.context}
-            />
-          )}
+          <AccountConnection
+            alertDeleteSuccess={messages => this.alertDeleteSuccess(messages)}
+            displayAccountsCount
+            editing={existingAccount && !createdAccount}
+            onDone={this.onDone}
+            onCancel={() => this.gotoParent()}
+            isUnloading={isClosing}
+            values={values}
+            closeModal={() => this.gotoParent()}
+            {...this.state}
+            {...this.props}
+            {...this.context}
+          />
         </ModalContent>
       </Modal>
     )
@@ -156,6 +165,23 @@ class ConnectionManagement extends Component {
     ])
 
     this.gotoParent()
+  }
+
+  onEnd = () => {
+    const { endCreation, isCreating } = this.props
+    if (isCreating) {
+      typeof endCreation === 'function' && endCreation()
+    }
+  }
+
+  onDone = account => {
+    this.onEnd()
+
+    const { konnector, history } = this.props
+
+    if (account) {
+      history.push(`/connected/${konnector.slug}/accounts/${account._id}`)
+    }
   }
 
   gotoParent() {
@@ -203,7 +229,7 @@ const mapDocumentsToProps = ownProps => ({
 const mapStateToProps = (state, ownProps) => {
   // infos from route parameters
   const { accountId, konnectorSlug } = ownProps.match && ownProps.match.params
-  const konnector = getRegistryKonnector(state.registry, konnectorSlug)
+  const konnector = getKonnector(state.cozy, konnectorSlug)
   const existingAccount = getAccount(state.cozy, accountId)
   const createdAccount = getCreatedConnectionAccount(state)
   const trigger = getTriggerByKonnectorAndAccount(
@@ -213,10 +239,10 @@ const mapStateToProps = (state, ownProps) => {
   )
   const maintenance = getKonnectorsInMaintenance()
   return {
+    connections: getConnectionsByKonnector(state, konnectorSlug),
     createdAccount,
     existingAccount,
     isCreating: isCreatingConnection(state.connections),
-    isWorking: isFetchingRegistryKonnector(state.registry),
     konnector: konnector,
     isRunning: isConnectionRunning(state.connections, trigger),
     lastSuccess: getTriggerLastSuccess(state.cozy, trigger),

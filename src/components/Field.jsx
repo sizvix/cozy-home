@@ -4,6 +4,7 @@ import React, { Component, cloneElement } from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { translate } from 'cozy-ui/react/I18n'
+import Input from 'cozy-ui/react/Input'
 import statefulComponent from '../lib/statefulComponent'
 
 const Field = props => {
@@ -35,10 +36,12 @@ const Field = props => {
       ? type === 'password' ? 'new-password' : 'off'
       : 'on'
     inputs = (
-      <input
+      <Input
+        aria-disabled={disabled}
         type={type}
+        size="medium"
+        fullwidth
         placeholder={placeholder}
-        className={styles['coz-field-input']}
         disabled={disabled}
         isRequired={isRequired}
         value={value}
@@ -77,7 +80,7 @@ class FieldWrapperComponent extends Component {
 
   render() {
     const { label, invalid, errors, children, type, isRequired, t } = this.props
-    const hasErrored = errors.length !== 0 || invalid
+    const hasErrored = (errors && errors.length !== 0) || invalid
 
     return (
       <div
@@ -98,7 +101,8 @@ class FieldWrapperComponent extends Component {
           </label>
         )}
         {children}
-        {errors.length !== 0 &&
+        {errors &&
+          errors.length !== 0 &&
           errors.map((err, i) => (
             <p key={i} className={styles['coz-field-error']}>
               {err}
@@ -152,10 +156,11 @@ export const PasswordField = translate()(
             ? t('field.password.visibility.hide')
             : t('field.password.visibility.show')}
         </button>
-        <input
+        <Input
           type={visible ? 'text' : 'password'}
+          size="medium"
+          fullwidth
           placeholder={placeholder}
-          className={styles['coz-field-input']}
           value={value}
           name={name}
           onChange={onChange}
@@ -170,23 +175,30 @@ export const PasswordField = translate()(
 
 export const DropdownField = translate()(props => {
   const { value, options, onChange, onInput } = props
-  let valueInOptions = options.indexOf(value) !== -1
+  let valueInOptions = options && options.indexOf(value) !== -1
   let dropdownFieldOptions = valueInOptions ? options : [value].concat(options)
 
   return (
     <FieldWrapper {...props}>
       <select
-        className={styles['coz-field-dropdown']}
+        className={classNames(
+          styles['c-select--medium'],
+          styles['c-select--fullwidth']
+        )}
         value={value}
         onChange={onChange}
         onInput={onInput}
       >
         {dropdownFieldOptions.map(optionValue => (
           <option
-            value={optionValue.value || (props.default && props.default.value)}
-            selected={optionValue.value === { value }}
+            value={
+              (optionValue && optionValue.value) ||
+              (props.default && props.default.value)
+            }
+            selected={optionValue && optionValue.value === { value }}
           >
-            {optionValue.name || (props.default && props.default.name)}
+            {(optionValue && optionValue.name) ||
+              (props.default && props.default.name)}
           </option>
         ))}
       </select>
@@ -207,7 +219,7 @@ export const CheckboxField = translate()(props => {
     />
   )
 
-  const hasErrored = errors.length > 0
+  const hasErrored = errors && errors.length > 0
 
   return (
     <div
@@ -221,7 +233,8 @@ export const CheckboxField = translate()(props => {
           {input} {label}
         </label>
       )}
-      {errors.length !== 0 &&
+      {errors &&
+        errors.length !== 0 &&
         errors.map((err, i) => (
           <p key={i} className={styles['coz-field-error']}>
             {err}
