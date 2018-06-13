@@ -3104,7 +3104,6 @@ ul.connector-list {
   background-position: center right;
 }
 .coz-service-content {
-  width: 100%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -3123,7 +3122,7 @@ ul.connector-list {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: auto;
+  margin: 0 1em;
   overflow-y: auto;
 }
 @media (max-width: 25rem) {
