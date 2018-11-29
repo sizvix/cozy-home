@@ -1209,11 +1209,11 @@ var context = window.context || 'cozy';
 var handleOAuthResponse = function handleOAuthResponse() {
   /* global URLSearchParams */
   var queryParams = new URLSearchParams(window.location.search);
+  var accountKey = queryParams.get('account');
+  var OAuthStateKey = queryParams.get('state');
+  var opener = window.opener;
 
-  if (queryParams.get('account')) {
-    var opener = window.opener;
-    var accountKey = queryParams.get('account');
-    var OAuthStateKey = queryParams.get('state');
+  if (opener && accountKey && OAuthStateKey) {
     var targetOrigin = window.location.origin || "".concat(window.location.protocol, "//").concat(window.location.hostname).concat(window.location.port ? ':' + window.location.port : '');
     opener.postMessage({
       key: accountKey,
